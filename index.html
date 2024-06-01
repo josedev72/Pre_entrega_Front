@@ -15,14 +15,25 @@
             <span>CAC-MOVIES</span>
         </a>
         <nav class="navegacion">
+
+            <li class="listaItem">
+                <span class="bienvenida" id="welcomeMessage"></span>
+            </li>
+
             <ul class="listaNav">
                 <li class="listaItem">
                     <a class="linkNav" href="#tendencias">Tendencias</a>
                 </li>
+
                 <li class="listaItem">
+                    <a class="linkNav" href="#tendencias">Tendencias</a>
+                </li>
+
+                <li class="listaItem"  id="registerItem">
                     <a class="linkNav" href="pages/registrarse.html">Registrarse</a>
                 </li>
-                <li class="listaItem">
+
+                <li class="listaItem" id="loginItem">
                     <a class="linkNav iniciarSesion" href="pages/iniciosesion.html">Iniciar Sesión</a>
                 </li>
             </ul>
@@ -233,5 +244,24 @@
             <img src="assets/img/flecha-hacia-arriba.png" alt="ir arriba flecha">
         </a>
     </footer>
+
+    <script>
+        // Obtener los elementos de 'Registrarse' e 'Iniciar Sesión'
+        const registerItem = document.getElementById('registerItem');
+        const loginItem = document.getElementById('loginItem');
+
+        // Obtener el nombre del usuario del localStorage
+        const userName = localStorage.getItem('userName');
+    
+        // Mostrar el mensaje de bienvenida
+        const welcomeMessage = document.getElementById('welcomeMessage');
+        welcomeMessage.textContent = `Bienvenido, ${userName} !!`;
+
+        if (userName.length > 1) {
+            // Ocultar los elementos de 'Registrarse' e 'Iniciar Sesión'
+            registerItem.style.display = 'none';
+            loginItem.style.display = 'none';
+        }
+      </script>
 </body>
 </html>
